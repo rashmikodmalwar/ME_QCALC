@@ -35,11 +35,20 @@ public class StandardCalculator {
 
     //using double datatype
     public void add(double num1,double num2){
-        result = num1+num2;
+        double result = num1+num2;
+        if(result == Double.MAX_VALUE || result == Double.POSITIVE_INFINITY){
+            throw new ArithmeticException("Double overflow");
+        } 
+
+        this.result = result;
     }
 
     public void subtract(double num1, double num2){
-        result =num1-num2;
+        double resultSub = num1-num2;
+        if(resultSub == -Double.MAX_VALUE || resultSub == Double.NEGATIVE_INFINITY){
+            throw new ArithmeticException("Double Overflow");
+        }
+        this.result = resultSub;
     }
 
     public void multiply(double num1, double num2){

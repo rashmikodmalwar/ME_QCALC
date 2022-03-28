@@ -12,15 +12,15 @@ public class QcalcApplication {
 		System.out.println("Starting QCalc..");
 
 		StandardCalculator calc = new StandardCalculator();
-		 calc.add(1, 1);
-		 calc.subtract(4, 2);
+		 calc.add(4.0, 3);
+		 calc.printResult();
+		 calc.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+		 calc.printResult();
 		 calc.multiply(4, 6);
+		 calc.printResult();
 		 calc.divide(6, 3);
-		 System.out.println(calc.getResult());
 		 calc.printResult();
 		 calc.clearResult();
-		
-
       System.out.println("Hello world!");
 	}
 

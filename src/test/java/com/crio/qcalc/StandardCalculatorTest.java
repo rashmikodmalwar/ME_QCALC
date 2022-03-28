@@ -1,10 +1,12 @@
 package com.crio.qcalc;
 
+import org.assertj.core.api.Assert;
 import org.assertj.core.internal.IntArrays;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.function.Executable;
 
 public class StandardCalculatorTest {
     private StandardCalculator standardCalculator;
@@ -49,19 +51,28 @@ public class StandardCalculatorTest {
 
     @Test
     @DisplayName("Test Addition For Double")
-    void TestAdditionOperationForDouble(){
-        standardCalculator.add(2.2,1.4);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(3.6, actualResult);
+    void TestAdditionOperationOverflowForDouble(){
+        Assertions.assertThrows(ArithmeticException.class, new Executable(){
+        
+            @Override
+            public void execute() throws Throwable {
+                standardCalculator.add(Double.MAX_VALUE, Double.MAX_VALUE);
+                
+            }
+        });
     }
     
 
     @Test
     @DisplayName("Test Substraction for Double")
-    void testSubtractionOperationForDouble(){
-        standardCalculator.subtract(20.4,2.4);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(18.0, actualResult);
+    void testSubtractionOperationOverflowForDouble(){
+        Assertions.assertThrows(ArithmeticException.class, new Executable(){
+        
+            @Override
+            public void execute() throws Throwable {
+                standardCalculator.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+            }
+        } );
     }
 
 
