@@ -52,10 +52,17 @@ public class StandardCalculator {
     }
 
     public final void multiply(double num1, double num2){
-        result = num1*num2;
+        double result = num1*num2;
+        if(result == Double.MAX_VALUE || result == Double.POSITIVE_INFINITY || result == Double.NEGATIVE_INFINITY){
+            throw new ArithmeticException("Double Overflow");
+        }
+       this.result = result;
     }
  
     public final void divide(double num1, double num2){
+        if(num2 == 0.0){
+            throw new ArithmeticException("Divide By Zero");
+        }
         result = num1/num2;
     }
 

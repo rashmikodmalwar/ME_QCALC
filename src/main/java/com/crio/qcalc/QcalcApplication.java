@@ -1,6 +1,4 @@
 package com.crio.qcalc;
-
-import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
@@ -14,14 +12,18 @@ public class QcalcApplication {
 		StandardCalculator calc = new StandardCalculator();
 		 calc.add(4.0, 3);
 		 calc.printResult();
-		 calc.subtract(-Double.MAX_VALUE, Double.MAX_VALUE);
+		 calc.subtract(2, 4);
 		 calc.printResult();
 		 calc.multiply(4, 6);
 		 calc.printResult();
 		 calc.divide(6, 3);
 		 calc.printResult();
 		 calc.clearResult();
-      System.out.println("Hello world!");
+
+		 LogicCalculator calc1 = new LogicCalculator();
+		 calc1.OR(8,4);
+		 calc1.printResult();
+     	 System.out.println("Hello world!");
 	}
 
 }
