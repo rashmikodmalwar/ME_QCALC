@@ -2,9 +2,7 @@ package com.crio.qcalc;
 
 public class StandardCalculator {
 
-    // public static void getVersion(){
-    //     System.out.println("Standard Calculator 1.0");
-    // }
+    
     protected double result;
    
 
@@ -59,7 +57,7 @@ public class StandardCalculator {
        this.result = result;
     }
  
-    public final void divide(double num1, double num2){
+    public final void division(double num1, double num2){
         if(num2 == 0.0){
             throw new ArithmeticException("Divide By Zero");
         }

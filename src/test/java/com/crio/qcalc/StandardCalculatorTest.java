@@ -86,9 +86,15 @@ public class StandardCalculatorTest {
     @Test
     @DisplayName("Test Division for double")
     public void TestDivisionOperationForDouble(){
-        standardCalculator.divide(20.4, 20);
-        double actualResult =standardCalculator.getResult();
-        Assertions.assertEquals(1.02, actualResult);
+        Assertions.assertThrows(ArithmeticException.class, new Executable(){
+        
+            @Override
+            public void execute() throws Throwable {
+               
+                standardCalculator.division(Double.MAX_VALUE, 0.0);
+            }
+        });
+        
     }
 
 
@@ -136,31 +142,6 @@ public class StandardCalculatorTest {
                 standardCalculator.subtract(-Double.MAX_VALUE,Double.MAX_VALUE);
             }
         });
-    }
-
-    @Test
-    @DisplayName("Test Addition of Two Doubles")
-    void testAdditionOperationForDoubles(){
-        standardCalculator.add(1.0,1.5);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(2.5, actualResult);
-    }
-
-    @Test
-    @DisplayName("Test Substraction of Two Doubles")
-    void testSubtractionOperationForDoubles(){
-        standardCalculator.subtract(10.0,20.5);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(-10.5, actualResult);
-    }
-
-
-    @Test
-    @DisplayName("Test Addition of Two Integers")
-    void testAdditionOperation(){
-        standardCalculator.add(1,1);
-        double actualResult = standardCalculator.getResult();
-        Assertions.assertEquals(2, actualResult);
     }
 
 }
