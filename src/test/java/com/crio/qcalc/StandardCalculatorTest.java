@@ -91,7 +91,7 @@ public class StandardCalculatorTest {
             @Override
             public void execute() throws Throwable {
                
-                standardCalculator.division(Double.MAX_VALUE, 0.0);
+                standardCalculator.divide(Double.MAX_VALUE, 0.0);
             }
         });
         

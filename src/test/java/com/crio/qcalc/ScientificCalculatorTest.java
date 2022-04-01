@@ -96,15 +96,4 @@ public class ScientificCalculatorTest {
         Assertions.assertEquals(expectedResult, actualResult);
     }
 
-    // @Test
-    // @DisplayName("Test Square Overflow")
-    // void testSquareOverflow(){
-    //     //Assert
-    //     Assertions.assertThrows(ArithmeticException.class,new Executable(){
-    //         @Override
-    //         public void execute() throws Throwable{
-    //             scientificCalculator.square(Double.MAX_VALUE);
-    //         }
-    //     });
-    // }
 }
